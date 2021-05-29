@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TestSoftwareStrategico.Models.Productos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Administrar Productos</h1>
+</div>
+<br />
+<p>
+    <a  class="btn btn-danger" href=@Url.Action("Index", "Admin")>Regresar</a>
+    <a asp-action="Create" class="btn btn-info">Crear Nuevo Producto</a>
+</p>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProdcutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductoNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductoDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsertTimeStamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoProdcutoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductoNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductoDescripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Activo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsertTimeStamp)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductoId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductoId">Ver Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductoId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+        

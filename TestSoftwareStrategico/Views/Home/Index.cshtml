@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TestSoftwareStrategico.Models.Productos>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="padding-top:2%;">BIENVENIDO CLIENTE</h1>
+
+    <br />
+    <br />
+    <h2>Lista de Productos</h2>
+    <br />
+    
+    @using (Html.BeginForm())
+    {
+        <p>
+            Buscar: @Html.TextBox("buscador")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoProdcutoId)
+                </th>
+                <th>
+                    @Html.ActionLink("Nombre", "Index", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductoDescripcion)
+                </th>
+                <th>
+                    @Html.ActionLink("Precio", "Index", new { sortOrder = ViewBag.PriceSortParm })
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoProdcutoId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductoNombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductoDescripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="padding-top:2%;">BIENVENIDO ADMININSTRADOR</h1>
+    <div>
+        <div class="col-lg-12 col-md-12 col-sm-12" style="padding-top:5%;">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-heading" href=@Url.Action("Index", "Productos")>Administrar Productos</a>
+                <a class="list-group-item list-group-item-heading" href=@Url.Action("Index", "TiposProductos")>Administrar Tipos Productos</a>                
+            </div>
+        </div>
+    </div>  
+</div>
